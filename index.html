@@ -264,7 +264,7 @@
       let currentYear = parseInt(document.getElementById("current-year").value);
       let age = currentYear - birthYear;
       if (age >= 0 && age <= 4) {
-              $categorie = "nourrisson";
+              categorie = "nourrisson";
           } else if (age >= 5 && age <= 12) {
               categorie = "enfant";
           } else if (age >= 13 && age <= 17) {
@@ -274,7 +274,7 @@
           } else if (age >= 51 && age <= 120) {
               categorie = "une personne âgée";
           } else {
-              categorie = "erreur";
+              categorie = "Null part Incorrect";
           }
       let loaderContainer = document.getElementById("loader-container");
       let loaderElement = document.querySelector(".loader");
@@ -288,7 +288,7 @@
       setTimeout(function() {
         loaderContainer.style.display = "none";
         resultElement.innerHTML = "";
-        const Rest =  `Bonjour ${name}, vous avez ${age} ans. ${categorie !== 'erreur' ? `Vous êtes ${categorie}.`: `Votre age est incorrect`}`
+        const Rest =  `Bonjour ${name}, vous avez ${age} ans. Vous êtes ${categorie}.`
         typeWriter(resultElement,Rest, 0);
         resultElement.style.animation = "fadeIn 1s ease forwards";
       }, 1000);

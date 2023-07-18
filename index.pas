@@ -1,4 +1,4 @@
-program CategorizeAge;
+﻿program CategorizeAge;
 var
   nom: string;
   anneeNaissance, anneeActuelle, age: integer;
