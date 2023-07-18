@@ -269,12 +269,14 @@
               categorie = "enfant";
           } else if (age >= 13 && age <= 17) {
               categorie = "adolescent";
-          } else if (age >= 18 && age <= 50) {
+          } else if (age >= 18 && age <= 59) {
               categorie = "adulte";
-          } else if (age >= 51 && age <= 120) {
-              categorie = "une personne âgée";
+          } else if (age >= 60 && age <= 79) {
+              categorie = "une personne Vieux";
+          } else if (age >= 80  && age <= 120) {
+              categorie = "une personne de 3em age";
           } else {
-              categorie = "Null part Incorrect";
+              categorie = "une personne qui as une age Incorrect";
           }
       let loaderContainer = document.getElementById("loader-container");
       let loaderElement = document.querySelector(".loader");
