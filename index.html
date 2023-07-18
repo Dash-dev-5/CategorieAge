@@ -28,7 +28,7 @@
     }
 
     .container {
-      max-width: 400px;
+      width: 400px;
       margin: 40px auto;
       background-color: #fff;
       padding: 20px;
@@ -211,6 +211,20 @@
       50% {
         border-color: #333;
       }
+    }
+    @media only screen and (max-device-width : 480px) {
+      .container {
+      width: 90%;
+      /* margin: 0; */
+      background-color: #fff;
+    }
+    *{
+      font-size: 1.3em;
+    }
+    h1{
+      font-size: 2em;
+    }
+
     }
   </style>
 </head>
