@@ -230,21 +230,22 @@
 </head>
 <body>
   <h1>Catégorisation d'âge</h1>
+  <form action="">
   <div class="container">
     <div class="form-group">
       <label for="name">Nom :</label>
-      <input type="text" id="name" placeholder="Entrez votre nom">
+      <input type="text" id="name" placeholder="Entrez votre nom" required>
     </div>
     <div class="form-group">
       <label for="birth-year">Année de naissance :</label>
-      <input type="number" id="birth-year" placeholder="Entrez votre année de naissance">
+      <input type="number" id="birth-year" placeholder="Entrez votre année de naissance" required>
     </div>
     <div class="form-group">
       <label for="current-year">Année actuelle :</label>
-      <input type="number" id="current-year" placeholder="Entrez l'année actuelle">
+      <input type="number" id="current-year" placeholder="Entrez l'année actuelle" required>
     </div>
     <div class="button-container">
-      <button onclick="calculateAge()">Calculer</button>
+      <button type="submit" onclick="calculateAge()">Calculer</button>
     </div>
     <div class="result" id="result"></div>
   </div>
@@ -256,13 +257,21 @@
   <div class="loader-container" id="loader-container">
     <div class="loader"></div>
   </div>
-
+  </form>
   <script>
     function calculateAge() {
       let name = document.getElementById("name").value;
       let birthYear = parseInt(document.getElementById("birth-year").value);
       let currentYear = parseInt(document.getElementById("current-year").value);
+      let loaderContainer = document.getElementById("loader-container");
+      let loaderElement = document.querySelector(".loader");
+      let resultElement = document.getElementById("result");
+      let creditsElement = document.getElementById("credits");
+      loaderContainer.style.display = "flex";
+      creditsElement.style.opacity = 1;
+      resultElement.style.opacity = 0;
       let age = currentYear - birthYear;
+      
       if (age >= 0 && age <= 4) {
               categorie = "nourrisson";
           } else if (age >= 5 && age <= 12) {
@@ -278,14 +287,6 @@
           } else {
               categorie = "une personne qui as une age Incorrect";
           }
-      let loaderContainer = document.getElementById("loader-container");
-      let loaderElement = document.querySelector(".loader");
-      let resultElement = document.getElementById("result");
-      let creditsElement = document.getElementById("credits");
-
-      loaderContainer.style.display = "flex";
-      creditsElement.style.opacity = 1;
-      resultElement.style.opacity = 0;
       
       setTimeout(function() {
         loaderContainer.style.display = "none";
