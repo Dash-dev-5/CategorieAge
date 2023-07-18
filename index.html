@@ -230,7 +230,6 @@
 </head>
 <body>
   <h1>Catégorisation d'âge</h1>
-  <form action="">
   <div class="container">
     <div class="form-group">
       <label for="name">Nom :</label>
@@ -257,9 +256,9 @@
   <div class="loader-container" id="loader-container">
     <div class="loader"></div>
   </div>
-  </form>
   <script>
     function calculateAge() {
+      
       let name = document.getElementById("name").value;
       let birthYear = parseInt(document.getElementById("birth-year").value);
       let currentYear = parseInt(document.getElementById("current-year").value);
@@ -287,11 +286,15 @@
           } else {
               categorie = "une personne qui as une age Incorrect";
           }
-      
+      var Rest
       setTimeout(function() {
+        if ((name =='') || (birthYear =='') || (currentYear=='')){
+          Rest = 'Veuillez saisir tous les champs'
+        }else {
+          Rest =  `Bonjour ${name}, vous avez ${age} ans. Vous êtes ${categorie}.`
+        }
         loaderContainer.style.display = "none";
         resultElement.innerHTML = "";
-        const Rest =  `Bonjour ${name}, vous avez ${age} ans. Vous êtes ${categorie}.`
         typeWriter(resultElement,Rest, 0);
         resultElement.style.animation = "fadeIn 1s ease forwards";
       }, 1000);
